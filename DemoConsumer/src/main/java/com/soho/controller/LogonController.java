@@ -13,8 +13,8 @@ import com.soho.service.UserService;
 @Controller
 public class LogonController {
 
-	//@Autowired
-	//private UserService userService;
+	@Autowired
+	private UserService userService;
 	
 	 @RequestMapping(value = "/index")
 	public String initIndex(Model model){
@@ -32,9 +32,9 @@ public class LogonController {
 		 System.out.println(user.getName());
 		 System.out.println(user.getPassword());
 		 
-		 ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"consumer.xml"});
-	     context.start();
-	     UserService userService = (UserService)context.getBean("userService");
+		 //ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"consumer.xml"});
+	     //context.start();
+	     //UserService userService = (UserService)context.getBean("userService");
 	     if(userService.isAuthed(user)){
 			return "MainPoster";
 		 }else{
